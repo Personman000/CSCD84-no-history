@@ -1,0 +1,52 @@
+cent_index=1;
+min_cent_index=1;
+for i=1:size(likely_map,1)
+    for j=1:size(likely_map,2)
+        
+        % If curr value is larger than max, OR, we still have extra K's
+        if(cent_index<=K)
+            
+            % Set current position as a centroid
+            cent(cent_index,1:end)=[i j];
+            
+            % Get the index of the smallest current centroid location
+            % population
+            if(likely_map(i,j)<min_cent_index)
+                min_cent_index=cent_index;
+            end
+            
+            cent_index=cent_index+1;
+        else
+            % If the current population is greater than our minimum
+            % centroid population
+            if(likely_map(i,j)>likely_map(cent(min_cent_index,1),cent(min_cent_index,2)))
+                
+                % Move the smallest centroid here
+                cent(min_cent_index,1:end)=[i,j];
+                
+                % Update the smallest centroid
+                for m=1:K
+                    if(likely_map(cent(m,1),cent(m,2))<likely_map(cent(min_cent_index,1),cent(min_cent_index,2)))
+                        min_cent_index=m;
+                    end
+                end
+                
+            end
+        end
+        
+    end
+end
+
+
+
+    else
+        rand_index=max(0,floor(rand(1)*size(pts,1)));
+        temp_cent(clust_min_index,1)=pts(rand_index,1);
+        
+        rand_index=max(0,floor(rand(1)*size(pts,1)));
+        temp_cent(clust_min_index,2)=pts(rand_index,2);
+        
+        [temp_sum, temp_dist, temp_clust_id]=distSum(pts,temp_cent);
+        if(temp_sum<d_sum)
+            cent=temp_cent;
+        end

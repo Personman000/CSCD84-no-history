@@ -1,0 +1,39 @@
+ // For each neighbor state around the current state
+ 
+ 	// If current_state is terminal_state OR If depth==MAX_DEPTH
+ 		// Return utility(current_state)
+ 	
+ 	// If agent==mouse
+	 	// utilities[neighbor]=minmax_cost[neighbor]=Recurse with state:mouse moved to new node, agent=cat
+	
+	// If agent==cat
+		// utilities[neighbor]=minmax_cost[neighbor]=Recurse with state:cat moved to new node, agent=next (if more cats, then next=next_cat. if no more cats, then next=mouse)
+
+// If agent==mouse
+ 	// Return max(utilities)
+
+// If agent==cat
+	// Return min(utilities)
+	
+	
+	
+
+// If current_state is terminal_state OR If max depth has been reached
+ int ind = mouse_loc[0][0] + (mouse_loc[0][1]*size_X);
+ if(checkForTerminal(mouse_loc, cat_loc, cheese_loc, cats, cheeses)==1 || depth==maxDepth || (((int)(gr[ind][0]==0) + (int)(gr[ind][1]==0) + (int)(gr[ind][2]==0) + (int)(gr[ind][3]==0)) >= 3))
+ {
+	// Return utility(current_state)
+	return utility(cat_loc, cheese_loc, mouse_loc, cats, cheeses, depth, gr);
+ }
+ 
+ // Cut out dead ends
+ int ind = mouse_loc[0][0] + (mouse_loc[0][1]*size_X);
+ if((((int)(gr[ind][0]==0) + (int)(gr[ind][1]==0) + (int)(gr[ind][2]==0) + (int)(gr[ind][3]==0)) >= 3) && min_cheese_distance != 0)
+ {
+ 	min_distance = -1;
+ }
+ 
+ 
+ break MiniMax_search.c:253
+
+utility(cat_loc, cheese_loc, mouse_loc, cats, cheeses, depth, gr)

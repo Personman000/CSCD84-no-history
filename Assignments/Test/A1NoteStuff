@@ -1,0 +1,55 @@
+ path[0][0]=mouse_loc[0][0], path[0][1]=mouse_loc[0][1];
+ int j;
+ int q=1;
+ for(j=0;j<100;j++){
+ if(j%2==1){ path[q][0]=path[q-1][0]-1;path[q][1]=path[q-1][1]; }
+ else{ path[q][0]=path[q-1][0];path[q][1]=path[q-1][1]-1; };
+ q++;
+ }
+ 
+ int i=0;
+ while(path[i][0]!=(-1)){
+	 printf("PATH: %d %d\n", path[i][0], path[i][1]);
+	 i++;
+ }
+ printf("PATH ends at %d: %d %d\n", i, path[i][0], path[i][1]);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  path[0][0]=mouse_loc[0][0], path[0][1]=mouse_loc[0][1];
+ path[1][0]=mouse_loc[0][0], path[1][1]=mouse_loc[0][1];
+ 
+ int v;
+ for(v=0; v<10; v++){
+ 	visit_order[v][v] = v; visit_order[v][v] = v;
+ 	printf("VISIT_ORDER %d %d\n", visit_order[v][v], visit_order[v][v]);
+ }
+  path[0][0]=mouse_loc[0][0], path[0][1]=mouse_loc[0][1];
+    path[1][0]=mouse_loc[0][0], path[1][1]=mouse_loc[0][1];
+ int j;
+ int q=2;
+ for(j=0;j<100;j++){
+ if(j%2==1){ path[q][0]=path[q-1][0]-1;path[q][1]=path[q-1][1]; }
+ else{ path[q][0]=path[q-1][0];path[q][1]=path[q-1][1]-1; };
+ q++;
+ }
+ 
+ int i=0;
+ while(path[i][0]!=(-1)){
+	 printf("PATH: %d %d\n", path[i][0], path[i][1]);
+	 i++;
+ }
+ printf("PATH ends at %d: %d %d\n", i, path[i][0], path[i][1]);
+
+ return;

@@ -1,0 +1,154 @@
+CSC D84 - Artificial Intelligence
+
+Assignment 4 - Neural Networks for OCR
+
+This assignment is worth:
+
+10 AIUs (Artificial Intelligence Units)
+toward the assignment component of your final
+mark.
+
+________________________________________________
+
+Student Name 1 (last, first): Ali Saad
+
+
+Student Name 2 (last, first):
+
+Student number 1: 1002519269
+
+Student number 2:
+
+UTORid 1: alisaad2
+
+UTORid 2:
+
+READ THIS AND SIGN YOUR NAME AT THE END:
+
+ I certify that I have read the UTSC code on academic
+honesty and plaguarism. All work submitted as part
+of this assignment is my own.
+
+    Signed: _Saad Syed Ali_      _(student 2 name)_
+
+
+(-5 marks for failing to provide the identifying
+ information requested above)
+________________________________________________
+
+Answer the following questions. Be concise and clear
+but explain carefully when needed.
+
+1 .- (1 marks) Train a 1-layer network using the Logistic activation
+               function. 
+
+	       Copy/paste the reported classification rates for:
+	 	
+	       Training data (last training round): 0.837843
+
+	       Testing data: 0.852428
+
+2 .- (1 marks) Repeat the process using the hyperbolic tangent activation
+	       function.
+
+	       Training data (last training round): 0.897070
+	       Testing data: 0.901782
+
+3 .- (1 marks) Which type of activation function yielded the best classification
+	       results? which one learned faster?
+	       
+	       Seems like hyperbolic yielded better results, but logistic was faster by something like twice the speed.
+
+4 .- (1 marks) Train a 2-layer network with hyperbolic-tangent activation, using
+	       150 hidden units. Report the classification rates on training and
+	       testing data just as for 1) and 2).
+	       
+	       Training data (last training round): 0.974326
+	       Testing data: 0.954601
+	       
+5 .- (1 marks) Same as 4), except use 10 hidden units instead
+
+	       Training data (last training round): 0.935665
+	       Testing data: 0.917503
+
+6 .- (1 marks) Same as 5), except use 3 hidden units instead
+
+	       Training data (last training round): 0.632330
+	       Testing data: 0.603638
+
+7 .- (3 marks) Comment on the experiments in 4, 5, and 6, and give your conclusion
+	       regarding the effect of the number of hidden units on classification
+	       accuracy.
+     
+	       What is the network with 3 hidden telling you about this classification
+	       problem?
+   
+      	       The larger the numer of hidden units, the more accurate the results seem to be. Even the images produced by the net look more accurately like the digits they represent as the number of hidden units increases, looking more like white and black noise with fewer hidden units.
+      	       
+      	       The 3-hidden-unit network's results are low, and the generated images look like a lot of noise, and are all very similar in shape. This tells me that the 3-hidden-unit network has resulted in mixed up weights, likely because there are fewer hidden units than output nodes. Almost every label check cause a significant change in hidden neurons weights, since with so few hidden neurons, each hidden neuron is taking a large part of the responsibility of identifying the digits, as opposed to when there are many hidden neurons and each of them can focus on very specific values of inputs, or combinations of inputs. The smaller number of hidden units cause the weights to not become very specific for each label, likely resulting in the "smooshed" data we find in the results of the 3-hidden-unit network.
+
+8 .- (3 marks) Train the best performing network you can. Use any activation function
+	       you wish, and set the number of hidden units so as to achieve the best
+	       performance.
+
+	       Number of hidden units used: 785
+
+	       Classification rate on testing data: 0.977475
+
+9 .- (3 marks) Describe how you would build a network to play the cat
+	        and mouse game (move the mouse to help it survive).
+
+		- Describe what the input is in terms of a vector of
+		  values
+		- Describe what the output layer looks like (how many
+		  neurons and what they encode)
+		- Describe the error function
+		- How many layers should you use?
+		
+		I think the input would be a list of values corresponding to the initial state of the board, i.e. mouse position, cats positions, cheese positions, wall positions.
+		The output of the net would be a vector containing a list of values corresponding to the path the mouse would take. The output layer itself would be a very large number of neurons, each corresponding to the different possible path vectors. For example, output neuron number 0 may represent the path for the mouse going (up, up, up, up, up, up, up) from its initial position. Output neuron 1 may represent the path (up, up, up, up, up, right). Output neuron 20 may represent (up, up, left, up, right, down, left, left, left). Etc.
+		The error function would be equal to the magnitude of the difference between the vector containing the optimal path for the mouse, and the vector containing the output of the net.
+		
+_____________________________________________________
+
+Mark with an 'x' where appropriate. If something is only
+working partially, briefly describe what works, what
+doesn't work, or what problems exist.
+	
+        	Complete/Working	Partial		Not done
+
+Logistic		x
+ activation
+ 
+Tanh			x
+ activation
+
+1L Feed-forward  	x
+
+1L Backprop		x
+
+1L Classify		x
+
+2L Feed-forward	x
+
+2L Backprop		x
+
+2L Classify		x
+_____________________________________________________
+
+Marking:
+
+(10) one-layer, logistic network trains and classifies
+
+(5)  one-layer, tanh network trains and classifies
+
+(15) two-layer, tanh network trains and classifies
+
+(5) two-layer, logistic network trains and classifies
+
+(5 marks) Can train 2-layer networks with either activation function
+	  and any number of hidden units
+
+(15 marks) Answers in this report
+
+Total for A4:       / out of 50

@@ -1,0 +1,85 @@
+function [t]=T(state1, action, state2)
+    
+    % if i3+i4=i2, then car is on junk
+    [s1i1,s1i2,s1i3,s1i4,s1i5]=indexesFromState(state1);
+    [s2i1,s2i2,s2i3,s2i4,s2i5]=indexesFromState(state2);
+    
+    
+    
+return;
+
+
+                Q_table(state, action)=R(s1,Rg,Ro,Rj) + T(i2)*gamma*(V(state, gamma, N, Ro));
+
+
+
+function [tp]=Tp(i2)
+
+    t=0;
+
+    if(i2 == 0 | i2 ==9)
+        %  Number of possible future states given the car can only move
+        % left/right and forward
+        t=(1*2*1*5*5);
+    else
+        % Number of possible future states given the car can move left,
+        % right, and forward
+        t=(1*3*1*5*5);
+    end
+    
+return
+
+function [v]=V(state, gamma, N, r)
+    
+    v = 0;
+
+    % Assume we get the best possible state. This means our reward will be
+    % the max every time. This means our reward is gamma^1*r + ... + gamma^N*r
+    for i=1:N
+        v = v + ((gamma^i)*r);
+    end
+    
+return;
+
+
+
+
+
+fs=[future_sum state action -99 i1 i2 i3 i4 i5]
+if(i5 ~= 0 & (i5+i4)==i2 & action==3)
+    warning("test");    
+end
+
+
+
+
+
+
+
+
+[s1,s2,s3,s4,s5]=indexesFromState(next_state);
+ns=[i4,(car_next_pos),(i5),(new_road),(new_junk), -Inf, future_sum, V_star(next_state+1)];
+                        end
+
+                    end
+                end
+
+                % Record reward
+                Q_table(state+1, 4-action) = R(state,Rg,Ro,Rj) + gamma * future_sum;
+                V_star(state+1) = max(Q_table(state+1, :));
+
+fs=[future_sum state action -Inf i1 i2 i3 i4 i5];
+            end
+        end
+q=Q_table(state+1, :);
+v=V_star(state+1);
+if(i5 ~= 0 & (i5+i4)==i2);
+    %warning("test");    
+end
+    end
+    
+    
+    
+end;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

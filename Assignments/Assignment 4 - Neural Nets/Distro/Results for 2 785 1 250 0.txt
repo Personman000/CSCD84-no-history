@@ -1,0 +1,29 @@
+**** After 1505000 iterations (250):
+Digit 0, correct classification rate=0.998138
+Digit 1, correct classification rate=0.991274
+Digit 2, correct classification rate=0.995927
+Digit 3, correct classification rate=0.991753
+Digit 4, correct classification rate=0.997890
+Digit 5, correct classification rate=0.995614
+Digit 6, correct classification rate=0.997845
+Digit 7, correct classification rate=0.994526
+Digit 8, correct classification rate=0.987552
+Digit 9, correct classification rate=0.985714
+Average correct classification rate: 0.993623
+Largest hidden to output weight: 17.008238
+Largest input to hidden weight: 70.124388
+Training done!
+Fri 09 Apr 2021 09:17:22 AM EDT
+Evaluating performance on test dataset... mode=2, units=785, sigmoid=1
+Digit 0, correct classification rate=0.989796
+Digit 1, correct classification rate=0.990308
+Digit 2, correct classification rate=0.978682
+Digit 3, correct classification rate=0.982178
+Digit 4, correct classification rate=0.965377
+Digit 5, correct classification rate=0.969731
+Digit 6, correct classification rate=0.983299
+Digit 7, correct classification rate=0.966926
+Digit 8, correct classification rate=0.971253
+Digit 9, correct classification rate=0.977205
+Average correct classification rate: 0.977475
+Fri 09 Apr 2021 09:17:34 AM EDT

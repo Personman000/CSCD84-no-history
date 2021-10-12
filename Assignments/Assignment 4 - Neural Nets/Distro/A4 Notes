@@ -1,0 +1,78 @@
+NOTES:
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+int train_1layer_net(sample[INPUTS], label, (*sigmoid)(double input), weights_io[INPUTS][OUTPUTS])
+{
+	// Initialize output array
+	double activations[OUTPUTS];
+
+	// Calculate all outputs
+	feedforward_1layer(sample, sigmoid, weights_io, activations);
+	
+	// Update weights
+	backprop_1layer(sample, activations, sigmoid, label, weights_io)
+	
+	// Return predicted value
+	return classify_1layer(sample[INPUTS], label, (*sigmoid)(double input), weights_io[INPUTS][OUTPUTS])
+}
+
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+int classify_1layer(sample[INPUTS], label, (*sigmoid)(double input), weights_io[INPUTS][OUTPUTS])
+{
+	// Initialize output array
+	double activations[OUTPUTS];
+	
+	// Calculate all outputs
+	feedforward_1layer(sample, sigmoid, weights_io, activations);
+	
+	// Classify outputs
+	return max(sigmoid(activations))
+}
+
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+feedforward_1layer(sample[785], (*sigmoid)(double input), weights_io[INPUTS][OUTPUTS], activations[OUTPUTS])
+{
+	// Calculate outputs using inputs and send the values to activations array
+	for each output O in activations[OUTPUTS]
+	{
+		for each input I in sample[785]
+		{
+			calculate O given I
+			plug O into activations[O]
+		}
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+backprop_1layer(sample[INPUTS], activations[OUTPUTS], (*sigmoid)(double input), label, weights_io[INPUTS][OUTPUTS])
+{
+	// Calculate all output errors derivs and update weights accordingly
+	for each output O in activations[OUTPUTS]
+	{
+		for each input I in sample[INPUTS]
+		{
+			f_a_i = sigmoid(activations[O])
+			weights[winput][woutput] += alpha * sample[I] * f_a_i * (1 - f_a_i) * ((int)(label==O) - f_a_i)
+		}
+	}
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------
+DEPENDENCIES
+
+train_1layer_net	->	->	->	->	feedforward_1layer	->	logistic
+			->	backprop_1layer			
+classify_1layer	->	->	->	->	^
